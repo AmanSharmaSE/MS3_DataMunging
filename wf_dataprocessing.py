@@ -1,4 +1,3 @@
-# wf_dataprocessing.py
 import os
 import pandas as pd
 
@@ -7,10 +6,6 @@ OUT_PATH = os.path.join("data_processed", "processed_listings.csv")
 
 
 def clean_price_to_float(series: pd.Series) -> pd.Series:
-    """
-    Convert price strings like "$3,673.00" to float 3673.00.
-    If already numeric or missing, coerce safely.
-    """
     s = series.astype(str).str.strip()
     s = s.replace({"": pd.NA, "nan": pd.NA, "None": pd.NA})
     s = s.str.replace("$", "", regex=False).str.replace(",", "", regex=False)
@@ -45,9 +40,6 @@ def run_dataprocessing() -> str:
     # Bedrooms often missing in InsideAirbnb; fill with median (keeps dataset size stable)
     if df["bedrooms"].isna().any():
         df["bedrooms"] = df["bedrooms"].fillna(df["bedrooms"].median())
-
-    # Optional mild sanity filters (keep conservative to avoid changing semantics)
-    # Remove non-positive price or accommodates (invalid listings)
     df = df[(df["price"] > 0) & (df["accommodates"] > 0)]
 
     df.to_csv(OUT_PATH, index=False)
@@ -56,4 +48,4 @@ def run_dataprocessing() -> str:
 
 if __name__ == "__main__":
     out = run_dataprocessing()
-    print(f"✅ Wrote processed data to: {out}")
+    print(f"Wrote processed data to: {out}")
