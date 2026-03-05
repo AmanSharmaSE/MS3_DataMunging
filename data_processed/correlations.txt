@@ -1,0 +1,8 @@
+PAIRWISE CORRELATIONS (Pearson)
+Features: ['price', 'accommodates', 'bedrooms', 'number_of_reviews']
+
+                      price  accommodates  bedrooms  number_of_reviews
+price              1.000000      0.105701  0.161866          -0.023088
+accommodates       0.105701      1.000000  0.695708           0.037055
+bedrooms           0.161866      0.695708  1.000000          -0.021156
+number_of_reviews -0.023088      0.037055 -0.021156           1.000000
