@@ -1,0 +1,30 @@
+SUMMARY STATISTICS
+Quantitative features: min / max / median
+
+[price]
+min: 61.0
+max: 900000.0
+median: 1039.0
+
+[accommodates]
+min: 1
+max: 16
+median: 2.0
+
+[bedrooms]
+min: 0.0
+max: 50.0
+median: 1.0
+
+[number_of_reviews]
+min: 0
+max: 1434
+median: 24.0
+
+
+Qualitative features: categories / most frequent / least frequent
+
+[room_type]
+number_of_categories: 4
+most_frequent (count=15896): ['Entire home/apt']
+least_frequent (count=57): ['Hotel room']
